@@ -1,0 +1,15 @@
+{
+  "name": "stark-loop",
+  "version": "1.2.4",
+  "main": "main.js",
+  "scripts": {
+    "start": "node main.js"
+  },
+  "keywords": [
+    "stark",
+    "starkLoop"
+  ],
+  "author": "Oyoku Hamilton",
+  "license": "ISC",
+  "description": "Loop through arrays && objects"
+}
