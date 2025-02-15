@@ -1,34 +1,18 @@
-class Stark {
-static loop(data, callback) {
-  if (Array.isArray(data)) {
-    // Loop through arrays
-    let i = 0;
-
-    function next() {
-      if (i < data.length) {
-        callback(data[i], i); // Pass the item and its index
-        i++;
-        next();
-      }
-    }
-
-    next(); // Start the loop
-  } else if (typeof data === "object" && data !== null) {
-    // Loop through objects
-    const keys = Object.keys(data);
+class StarkLoop {
+  static iterate(data, callback) {
+    const keys = Object.keys(data); // Store keys upfront to prevent modification issues
     let i = 0;
 
     function next() {
       if (i < keys.length) {
-        const key = keys[i];
-        callback(key, data[key]); // Pass the key and its value
+        callback(data[keys[i]], keys[i]); // Always (value, key/index)
         i++;
-        next();
+        next(); // Recursive call
       }
     }
 
-    next(); // Start the loop
+    next();
   }
 }
-}
-module.exports = Stark;
+
+module.exports = StarkLoop;
